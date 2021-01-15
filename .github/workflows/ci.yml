@@ -4,4 +4,5 @@ on: [push]
 
 jobs:
   go-mod:
-    
+    runs-on: ubuntu-latest
+    st
