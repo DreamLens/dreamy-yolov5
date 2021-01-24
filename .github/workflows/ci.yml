@@ -9,4 +9,5 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v4
         with:
-          go-versio
+          go-version: 1.21.x
+      - uses: actions/ch
