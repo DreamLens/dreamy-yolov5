@@ -17,4 +17,5 @@ jobs:
           git diff --exit-code go.mod
   golangci:
     name: lint
-  
+    runs-on: ubuntu-latest
+   
