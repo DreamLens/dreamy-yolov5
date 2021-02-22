@@ -19,4 +19,6 @@ jobs:
     name: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/
+      - uses: actions/checkout@v4
+      - name: Run lint
+    
