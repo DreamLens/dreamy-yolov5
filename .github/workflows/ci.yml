@@ -26,3 +26,5 @@ jobs:
           make ci-lint
   test:
     name: test
+    runs-on: ubuntu-latest
+ 
