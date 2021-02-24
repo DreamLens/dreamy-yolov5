@@ -23,3 +23,5 @@ jobs:
       - name: Run lint
         run: |
           make ci-init
+          make ci-lint
+ 
