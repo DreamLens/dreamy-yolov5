@@ -24,4 +24,5 @@ jobs:
         run: |
           make ci-init
           make ci-lint
- 
+  test:
+    name: test
