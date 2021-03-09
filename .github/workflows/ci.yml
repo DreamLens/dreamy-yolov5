@@ -32,4 +32,5 @@ jobs:
       - name: Run tests
         run: |
           make ci-init
-          TEST_OUT=$(
+          TEST_OUT=$(make ci-test | tail -n 1)
+    
