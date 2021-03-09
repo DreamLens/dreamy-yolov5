@@ -31,4 +31,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run tests
         run: |
-          make 
+          make ci-init
+          TEST_OUT=$(
