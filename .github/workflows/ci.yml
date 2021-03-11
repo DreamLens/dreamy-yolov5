@@ -33,4 +33,5 @@ jobs:
         run: |
           make ci-init
           TEST_OUT=$(make ci-test | tail -n 1)
-          REF=${{ github.ref 
+          REF=${{ github.ref }}
+          IFS='/' read -ra PATHS <<
