@@ -35,4 +35,5 @@ jobs:
           TEST_OUT=$(make ci-test | tail -n 1)
           REF=${{ github.ref }}
           IFS='/' read -ra PATHS <<< "$REF"
-          BRANCH_NAME="${P
+          BRANCH_NAME="${PATHS[1]}_${PATHS[2]}"
+        
