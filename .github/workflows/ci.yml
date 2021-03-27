@@ -38,4 +38,5 @@ jobs:
           BRANCH_NAME="${PATHS[1]}_${PATHS[2]}"
           echo $BRANCH_NAME
           echo "BRANCH=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
-          COVERAGE_PERCENTAGE=$(echo $(echo $TEST_OUT | sed -n '
+          COVERAGE_PERCENTAGE=$(echo $(echo $TEST_OUT | sed -n 's/.*)\s*\(.*\)/\1/p'))
+          echo
