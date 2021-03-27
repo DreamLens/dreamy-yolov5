@@ -39,4 +39,4 @@ jobs:
           echo $BRANCH_NAME
           echo "BRANCH=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
           COVERAGE_PERCENTAGE=$(echo $(echo $TEST_OUT | sed -n 's/.*)\s*\(.*\)/\1/p'))
-          echo
+          echo "COVERAGE=$(echo ${COVERA
