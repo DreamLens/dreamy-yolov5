@@ -39,4 +39,6 @@ jobs:
           echo $BRANCH_NAME
           echo "BRANCH=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
           COVERAGE_PERCENTAGE=$(echo $(echo $TEST_OUT | sed -n 's/.*)\s*\(.*\)/\1/p'))
-          echo "COVERAGE=$(echo ${COVERAGE_PERCENTAGE})" >> $GITHUB_E
+          echo "COVERAGE=$(echo ${COVERAGE_PERCENTAGE})" >> $GITHUB_ENV
+      - name: Create the Badge
+  
