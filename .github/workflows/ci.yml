@@ -43,4 +43,5 @@ jobs:
       - name: Create the Badge
         uses: schneegans/dynamic-badges-action@v1.7.0
         with:
-          auth: ${{ secrets.GIST_
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 336
