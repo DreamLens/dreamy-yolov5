@@ -45,4 +45,4 @@ jobs:
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 336567a087162bcad4e55ebe4b17b457
-          filena
+          filename: yolov5__${{ env.BRANCH }}
