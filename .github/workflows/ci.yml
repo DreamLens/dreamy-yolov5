@@ -44,4 +44,5 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.7.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: 336567a087162bcad4e55e
+          gistID: 336567a087162bcad4e55ebe4b17b457
+          filena
