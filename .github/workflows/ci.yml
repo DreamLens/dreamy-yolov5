@@ -45,4 +45,5 @@ jobs:
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 336567a087162bcad4e55ebe4b17b457
-          filename: yolov5__${{ env.BRANCH }}
+          filename: yolov5__${{ env.BRANCH }}.json
+          label: Test Co
