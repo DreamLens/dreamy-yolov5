@@ -48,4 +48,5 @@ jobs:
           filename: yolov5__${{ env.BRANCH }}.json
           label: Test Coverage
           message: ${{ env.COVERAGE }}
-     
+          color: green
+          namedLogo
