@@ -47,4 +47,5 @@ jobs:
           gistID: 336567a087162bcad4e55ebe4b17b457
           filename: yolov5__${{ env.BRANCH }}.json
           label: Test Coverage
-          messag
+          message: ${{ env.COVERAGE }}
+     
