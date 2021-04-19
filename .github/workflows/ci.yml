@@ -49,4 +49,4 @@ jobs:
           label: Test Coverage
           message: ${{ env.COVERAGE }}
           color: green
-          namedLogo
+          namedLogo: Go
