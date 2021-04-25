@@ -22,3 +22,41 @@ test:
 	@go tool cover -html=reports/codecoverage_all.cov -o reports/coverage.html
 	@echo "View report at $(PWD)/reports/coverage.html"
 	@tail -n 1 reports/functioncoverage.out 
+
+# Opens created coverage report in default browser
+coverage-report:
+	@open reports/coverage.html
+
+# Runs the examples
+bird-example:
+	@cd cmd/image && go run .
+	
+street-example:
+	@cd cmd/image && go run . -i ../../data/example_images/street.jpg
+
+webcam-example:
+	@cd cmd/webcam && go run .
+
+cuda-example:
+	@cd cmd/cuda && go run .
+
+# CI commands
+ci-init:
+	@docker build -t yolov5-ci .
+
+ci-lint:
+	@docker run yolov5-ci make lint
+
+ci-test:
+	@docker run yolov5-ci make test
+
+$(GOBIN)/gofumpt:
+	@GO111MODULE=on go get mvdan.cc/gofumpt
+	@go mod tidy
+
+gofumpt: | $(GOBIN)/gofumpt
+	@gofumpt -w
+
+gci:
+	@gci -local="github.com/wimspaargaren/yolov5" -w $(shell ls  -d $(PWD)/* | grep -v mocks)
+	@gci -local="github.com/wimspaargaren/yolov5" -w $(shell ls  -d $(PWD)/cmd/*)
