@@ -8,4 +8,5 @@ For CUDA installation instruction, see the gocv [CUDA README](https://github.com
 
 Software
 - Ubuntu 20.04 (64-bit)
-- Nvidia-sm
+- Nvidia-smi 460.32.03
+- CUDA versio
