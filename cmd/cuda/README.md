@@ -7,4 +7,5 @@ For CUDA installation instruction, see the gocv [CUDA README](https://github.com
 ## Test conditions
 
 Software
-- Ubuntu 20
+- Ubuntu 20.04 (64-bit)
+- Nvidia-sm
