@@ -9,4 +9,8 @@ For CUDA installation instruction, see the gocv [CUDA README](https://github.com
 Software
 - Ubuntu 20.04 (64-bit)
 - Nvidia-smi 460.32.03
-- CUDA versio
+- CUDA version 11.2
+- OpenCV 4.5.1
+
+Hardware
+- 
