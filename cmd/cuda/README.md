@@ -13,4 +13,5 @@ Software
 - OpenCV 4.5.1
 
 Hardware
-- 
+- AMD Ryzen 5 3600
+- Geforce GTX 960 
