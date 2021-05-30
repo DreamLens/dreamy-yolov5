@@ -14,4 +14,8 @@ Software
 
 Hardware
 - AMD Ryzen 5 3600
-- Geforce GTX 960 
+- Geforce GTX 960 (4G)
+- 16G RAM
+
+## CPU Load
+<img src
