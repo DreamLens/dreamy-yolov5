@@ -18,4 +18,6 @@ Hardware
 - 16G RAM
 
 ## CPU Load
-<img src
+<img src="cpu-usage.png"
+     alt="CPU Usage"
+   
