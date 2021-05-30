@@ -20,4 +20,4 @@ Hardware
 ## CPU Load
 <img src="cpu-usage.png"
      alt="CPU Usage"
-   
+     style="float: left; marg
