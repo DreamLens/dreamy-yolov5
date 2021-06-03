@@ -22,4 +22,6 @@ Hardware
      alt="CPU Usage"
      style="float: left; margin-right: 10px;" />
 
-## G
+## GPU Load
+
+<img src="nvidia-smi
