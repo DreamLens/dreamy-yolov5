@@ -24,4 +24,6 @@ Hardware
 
 ## GPU Load
 
-<img src="nvidia-smi
+<img src="nvidia-smi.png"
+     alt="GPU Usage"
+     style="flo
