@@ -1,1 +1,1 @@
-// Package main contains an
+// Package main contains an example on how yo run yolov5 with CU
