@@ -26,4 +26,4 @@ Hardware
 
 <img src="nvidia-smi.png"
      alt="GPU Usage"
-     style="flo
+     style="float: left; margin-right: 10px
