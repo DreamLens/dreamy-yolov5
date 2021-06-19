@@ -8,4 +8,6 @@ import (
 	"time"
 
 	log "github.com/sirupsen/logrus"
-	"gocv
+	"gocv.io/x/gocv"
+
+	"github.com/wimsp
