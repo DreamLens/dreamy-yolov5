@@ -10,4 +10,8 @@ import (
 	log "github.com/sirupsen/logrus"
 	"gocv.io/x/gocv"
 
-	"github.com/wimsp
+	"github.com/wimspaargaren/yolov5"
+)
+
+var (
+	
