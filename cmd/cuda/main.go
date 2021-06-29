@@ -14,4 +14,4 @@ import (
 )
 
 var (
-	yolov5Model   = path.Join(os.Gete
+	yolov5Model   = path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargar
