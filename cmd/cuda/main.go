@@ -14,4 +14,4 @@ import (
 )
 
 var (
-	
+	yolov5Model   = path.Join(os.Gete
