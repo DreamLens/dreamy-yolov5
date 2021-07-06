@@ -18,4 +18,5 @@ var (
 	cocoNamesPath = path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/yolov5/data/yolov5/coco.names")
 )
 
-func
+func main() {
+	conf := yolov5.DefaultConf
