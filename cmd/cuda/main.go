@@ -19,4 +19,5 @@ var (
 )
 
 func main() {
-	conf := yolov5.DefaultConf
+	conf := yolov5.DefaultConfig()
+	conf.NetBackendType = g
