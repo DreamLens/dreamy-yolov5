@@ -21,4 +21,6 @@ var (
 func main() {
 	conf := yolov5.DefaultConfig()
 	conf.NetBackendType = gocv.NetBackendCUDA
-	conf.NetTar
+	conf.NetTargetType = gocv.NetTargetCUDA
+
+	y
