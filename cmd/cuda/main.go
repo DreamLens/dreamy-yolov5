@@ -23,4 +23,6 @@ func main() {
 	conf.NetBackendType = gocv.NetBackendCUDA
 	conf.NetTargetType = gocv.NetTargetCUDA
 
-	yolonet, err := yolov5.NewNetWithConfig(yolov5Model, cocoNamesPath,
+	yolonet, err := yolov5.NewNetWithConfig(yolov5Model, cocoNamesPath, conf)
+	if err != nil {
+		log.WithE
