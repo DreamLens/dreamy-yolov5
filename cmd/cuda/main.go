@@ -23,4 +23,4 @@ func main() {
 	conf.NetBackendType = gocv.NetBackendCUDA
 	conf.NetTargetType = gocv.NetTargetCUDA
 
-	y
+	yolonet, err := yolov5.NewNet
