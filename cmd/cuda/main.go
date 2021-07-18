@@ -25,4 +25,4 @@ func main() {
 
 	yolonet, err := yolov5.NewNetWithConfig(yolov5Model, cocoNamesPath, conf)
 	if err != nil {
-		log.WithE
+		log.WithError(err).Fatal("unable to create yolo n
