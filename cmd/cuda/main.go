@@ -32,4 +32,4 @@ func main() {
 	defer func() {
 		err := yolonet.Close()
 		if err != nil {
-			log.WithErro
+			log.WithError(err).Error("unable to gracefully clo
