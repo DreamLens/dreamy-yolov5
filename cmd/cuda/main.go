@@ -30,4 +30,5 @@ func main() {
 
 	// Gracefully close the net when the program is done
 	defer func() {
-		err
+		err := yolonet.Close()
+		if 
