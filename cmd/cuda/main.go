@@ -36,4 +36,6 @@ func main() {
 		}
 	}()
 
-	window := gocv.NewWindow("Result Wi
+	window := gocv.NewWindow("Result Window")
+	defer func() {
+		err := w
