@@ -36,4 +36,4 @@ func main() {
 		}
 	}()
 
-	win
+	window := gocv.NewWindow("Result Wi
