@@ -40,4 +40,4 @@ func main() {
 	defer func() {
 		err := window.Close()
 		if err != nil {
-			log.WithErro
+			log.WithError(err).Error("unable t
