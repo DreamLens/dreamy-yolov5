@@ -42,4 +42,6 @@ func main() {
 		if err != nil {
 			log.WithError(err).Error("unable to close window")
 		}
+	}()
+	window.ResizeWindow(872, 585)
 	
