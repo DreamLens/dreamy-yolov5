@@ -44,4 +44,4 @@ func main() {
 		}
 	}()
 	window.ResizeWindow(872, 585)
-	orgFrame := gocv.IMRead(path.Join(
+	orgFrame := gocv.IMRead(path.Join(os.Getenv("GOPATH"), "src/github
