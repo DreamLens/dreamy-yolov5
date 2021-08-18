@@ -44,4 +44,4 @@ func main() {
 		}
 	}()
 	window.ResizeWindow(872, 585)
-	
+	orgFrame := gocv.IMRead(path.Join(
