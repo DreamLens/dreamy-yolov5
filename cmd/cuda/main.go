@@ -46,4 +46,5 @@ func main() {
 	window.ResizeWindow(872, 585)
 	orgFrame := gocv.IMRead(path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/yolov5/data/example_images/bird.jpg"), gocv.IMReadColor)
 	defer func() {
-		e
+		err := orgFrame.Close()
+		if err != nil 
