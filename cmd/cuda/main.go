@@ -48,4 +48,5 @@ func main() {
 	defer func() {
 		err := orgFrame.Close()
 		if err != nil {
-			log.WithError(err).Erro
+			log.WithError(err).Error("unable to close frame")
+		}
