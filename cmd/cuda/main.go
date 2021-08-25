@@ -50,3 +50,6 @@ func main() {
 		if err != nil {
 			log.WithError(err).Error("unable to close frame")
 		}
+	}()
+
+	// Render exampl
