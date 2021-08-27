@@ -52,4 +52,5 @@ func main() {
 		}
 	}()
 
-	// Render exampl
+	// Render example image at 50 frames a second
+	tic
