@@ -56,4 +56,5 @@ func main() {
 	ticker := time.NewTicker(time.Second / 50)
 	go func() {
 		for {
-			<-t
+			<-ticker.C
+			frame := orgFrame.Cl
