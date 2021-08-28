@@ -53,4 +53,5 @@ func main() {
 	}()
 
 	// Render example image at 50 frames a second
-	tic
+	ticker := time.NewTicker(time.Second / 50)
+	go
