@@ -57,4 +57,5 @@ func main() {
 	go func() {
 		for {
 			<-ticker.C
-			frame := orgFrame.Cl
+			frame := orgFrame.Clone()
+			detections, err := yolo
