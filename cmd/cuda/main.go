@@ -58,4 +58,5 @@ func main() {
 		for {
 			<-ticker.C
 			frame := orgFrame.Clone()
-			detections, err := yolo
+			detections, err := yolonet.GetDetections(frame)
+			if err != nil 
