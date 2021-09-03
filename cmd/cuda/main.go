@@ -59,4 +59,5 @@ func main() {
 			<-ticker.C
 			frame := orgFrame.Clone()
 			detections, err := yolonet.GetDetections(frame)
-			if err != nil 
+			if err != nil {
+				err = fmt.Errorf("%w %w", err,
