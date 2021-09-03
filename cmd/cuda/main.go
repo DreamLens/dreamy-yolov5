@@ -60,4 +60,5 @@ func main() {
 			frame := orgFrame.Clone()
 			detections, err := yolonet.GetDetections(frame)
 			if err != nil {
-				err = fmt.Errorf("%w %w", err,
+				err = fmt.Errorf("%w %w", err, frame.Close())
+				log.WithError(e
