@@ -61,4 +61,8 @@ func main() {
 			detections, err := yolonet.GetDetections(frame)
 			if err != nil {
 				err = fmt.Errorf("%w %w", err, frame.Close())
-				log.WithError(err).Fatal("unable to retrieve predictions
+				log.WithError(err).Fatal("unable to retrieve predictions")
+				continue
+			}
+
+			yo
