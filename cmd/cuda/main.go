@@ -65,4 +65,7 @@ func main() {
 				continue
 			}
 
-			yolov5.DrawDetections(&frame, dete
+			yolov5.DrawDetections(&frame, detections)
+
+			window.IMShow(frame)
+			err
