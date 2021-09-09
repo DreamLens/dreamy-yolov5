@@ -65,4 +65,4 @@ func main() {
 				continue
 			}
 
-			yo
+			yolov5.DrawDetections(&frame, dete
