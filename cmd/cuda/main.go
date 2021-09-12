@@ -68,4 +68,5 @@ func main() {
 			yolov5.DrawDetections(&frame, detections)
 
 			window.IMShow(frame)
-			err
+			err = frame.Close()
+			if err
