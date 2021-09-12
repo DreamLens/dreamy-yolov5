@@ -69,4 +69,5 @@ func main() {
 
 			window.IMShow(frame)
 			err = frame.Close()
-			if err
+			if err != nil {
+				log.With
