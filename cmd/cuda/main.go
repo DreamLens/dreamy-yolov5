@@ -70,4 +70,8 @@ func main() {
 			window.IMShow(frame)
 			err = frame.Close()
 			if err != nil {
-				log.WithError(err).Error("unable to close
+				log.WithError(err).Error("unable to close frame")
+			}
+		}
+	}()
+	window.Wait
