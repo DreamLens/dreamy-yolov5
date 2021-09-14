@@ -74,4 +74,5 @@ func main() {
 			}
 		}
 	}()
-	window.Wait
+	window.WaitKey(10000000000)
+}
