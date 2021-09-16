@@ -1,1 +1,1 @@
-// Package main 
+// Package main provides an example on how to run 
