@@ -6,4 +6,5 @@ import (
 	"os"
 	"path"
 
-	log
+	log "github.com/sirupsen/logrus"
+	"gocv.io/x
