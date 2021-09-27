@@ -18,4 +18,4 @@ var (
 )
 
 func main() {
-	imagePath := flag.String("i", path.Join(o
+	imagePath := flag.String("i", path.Join(os.Getenv("GOPATH"), "s
