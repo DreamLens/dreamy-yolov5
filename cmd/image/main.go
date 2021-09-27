@@ -18,3 +18,4 @@ var (
 )
 
 func main() {
+	imagePath := flag.
