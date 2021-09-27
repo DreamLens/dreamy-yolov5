@@ -18,4 +18,4 @@ var (
 )
 
 func main() {
-	imagePath := flag.
+	imagePath := flag.String("i", path.Join(o
