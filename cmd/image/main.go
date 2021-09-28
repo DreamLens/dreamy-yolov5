@@ -18,4 +18,4 @@ var (
 )
 
 func main() {
-	imagePath := flag.String("i", path.Join(os.Getenv("GOPATH"), "s
+	imagePath := flag.String("i", path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/yolov
