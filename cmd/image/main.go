@@ -19,4 +19,6 @@ var (
 
 func main() {
 	imagePath := flag.String("i", path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/yolov5/data/example_images/street.jpg"), "specify the image path")
-	flag.Parse(
+	flag.Parse()
+
+	yolonet, err := yolov5.NewNet(yolov
