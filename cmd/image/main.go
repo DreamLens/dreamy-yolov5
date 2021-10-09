@@ -23,4 +23,4 @@ func main() {
 
 	yolonet, err := yolov5.NewNet(yolov5Model, cocoNamesPath)
 	if err != nil {
-		log.WithErro
+		log.WithError(err).Fatal("unable to cr
