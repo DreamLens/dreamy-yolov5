@@ -22,4 +22,5 @@ func main() {
 	flag.Parse()
 
 	yolonet, err := yolov5.NewNet(yolov5Model, cocoNamesPath)
-	if err !=
+	if err != nil {
+		log.WithErro
