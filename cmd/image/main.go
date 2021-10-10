@@ -26,4 +26,4 @@ func main() {
 		log.WithError(err).Fatal("unable to create yolo net")
 	}
 
-	// Gracefully
+	// Gracefully close the net when the program
