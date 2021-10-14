@@ -30,4 +30,4 @@ func main() {
 	defer func() {
 		err := yolonet.Close()
 		if err != nil {
-			log.
+			log.WithError(err).Error("unable to grac
