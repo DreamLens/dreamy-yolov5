@@ -31,4 +31,7 @@ func main() {
 		err := yolonet.Close()
 		if err != nil {
 			log.WithError(err).Error("unable to gracefully close yolo net")
-		
+		}
+	}()
+
+	frame := gocv.IMRead(*image
