@@ -34,4 +34,4 @@ func main() {
 		}
 	}()
 
-	frame := gocv.IMRead(*image
+	frame := gocv.IMRead(*imagePath, gocv.IMReadColor)
