@@ -36,4 +36,5 @@ func main() {
 
 	frame := gocv.IMRead(*imagePath, gocv.IMReadColor)
 
-	detections, err := yolonet.Get
+	detections, err := yolonet.GetDetections(frame)
+	if err != ni
