@@ -41,4 +41,6 @@ func main() {
 		log.WithError(err).Fatal("unable to retrieve predictions")
 	}
 
-	yolov5.Dr
+	yolov5.DrawDetections(&frame, detections)
+
+	window 
