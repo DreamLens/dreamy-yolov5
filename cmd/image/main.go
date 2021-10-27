@@ -43,4 +43,4 @@ func main() {
 
 	yolov5.DrawDetections(&frame, detections)
 
-	window 
+	window := gocv.NewWindow("Result W
