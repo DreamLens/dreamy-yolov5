@@ -45,4 +45,5 @@ func main() {
 
 	window := gocv.NewWindow("Result Window")
 	defer func() {
-		err := w
+		err := window.Close()
+		if err != n
