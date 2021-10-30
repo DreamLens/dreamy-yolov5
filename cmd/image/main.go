@@ -46,4 +46,5 @@ func main() {
 	window := gocv.NewWindow("Result Window")
 	defer func() {
 		err := window.Close()
-		if err != n
+		if err != nil {
+			log.WithError(err).E
