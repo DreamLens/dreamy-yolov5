@@ -47,4 +47,6 @@ func main() {
 	defer func() {
 		err := window.Close()
 		if err != nil {
-			log.WithError(err).E
+			log.WithError(err).Error("unable to close window")
+		}
+	
