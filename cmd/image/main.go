@@ -54,4 +54,5 @@ func main() {
 	window.IMShow(frame)
 	window.ResizeWindow(872, 585)
 
-	win
+	window.WaitKey(10000000000)
+}
