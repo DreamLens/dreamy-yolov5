@@ -1,0 +1,1 @@
+// Package main provides an example
