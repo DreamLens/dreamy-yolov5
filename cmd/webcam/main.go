@@ -6,4 +6,6 @@ import (
 	"path"
 
 	log "github.com/sirupsen/logrus"
-	"gocv.io/x/
+	"gocv.io/x/gocv"
+
+	"github.com/wimspaargar
