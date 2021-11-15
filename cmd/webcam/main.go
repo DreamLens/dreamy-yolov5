@@ -12,4 +12,4 @@ import (
 )
 
 var (
-	yolov5Model  
+	yolov5Model   = path.Join(os.Getenv("GOPATH"
