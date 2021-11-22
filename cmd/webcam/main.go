@@ -17,4 +17,4 @@ var (
 )
 
 func main() {
-	y
+	yolonet, err := yolov5.Ne
