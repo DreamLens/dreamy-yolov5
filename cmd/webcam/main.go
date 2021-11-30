@@ -17,4 +17,4 @@ var (
 )
 
 func main() {
-	yolonet, err := yolov5.Ne
+	yolonet, err := yolov5.NewNet(yolov5Model, cocoNamesPa
