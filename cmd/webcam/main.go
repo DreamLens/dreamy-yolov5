@@ -19,4 +19,7 @@ var (
 func main() {
 	yolonet, err := yolov5.NewNet(yolov5Model, cocoNamesPath)
 	if err != nil {
-		log.WithError(err).Fatal("unable to create yo
+		log.WithError(err).Fatal("unable to create yolo net")
+	}
+
+	// Gracefu
