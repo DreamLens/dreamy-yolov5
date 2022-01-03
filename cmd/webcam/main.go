@@ -26,4 +26,4 @@ func main() {
 	defer func() {
 		err := yolonet.Close()
 		if err != nil {
-			l
+			log.WithError(err).Error("un
