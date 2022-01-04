@@ -26,4 +26,8 @@ func main() {
 	defer func() {
 		err := yolonet.Close()
 		if err != nil {
-			log.WithError(err).Error("unable to gracefully close yolo ne
+			log.WithError(err).Error("unable to gracefully close yolo net")
+		}
+	}()
+
+	videoCaptu
