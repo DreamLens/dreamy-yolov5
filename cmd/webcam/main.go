@@ -26,4 +26,4 @@ func main() {
 	defer func() {
 		err := yolonet.Close()
 		if err != nil {
-			log.WithError(err).Error("un
+			log.WithError(err).Error("unable to gracefully close yolo ne
