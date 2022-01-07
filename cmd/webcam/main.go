@@ -30,4 +30,6 @@ func main() {
 		}
 	}()
 
-	videoCapture, err := gocv.OpenVideoCapture(
+	videoCapture, err := gocv.OpenVideoCapture(0)
+	if err != nil {
+		log.Wi
