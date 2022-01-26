@@ -32,4 +32,4 @@ func main() {
 
 	videoCapture, err := gocv.OpenVideoCapture(0)
 	if err != nil {
-		log.Wi
+		log.WithError(err).Fatal("unable to st
