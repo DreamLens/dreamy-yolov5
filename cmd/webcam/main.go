@@ -32,4 +32,7 @@ func main() {
 
 	videoCapture, err := gocv.OpenVideoCapture(0)
 	if err != nil {
-		log.WithError(err).Fatal("unable to st
+		log.WithError(err).Fatal("unable to start video capture")
+	}
+
+	window := 
