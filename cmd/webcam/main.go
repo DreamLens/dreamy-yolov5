@@ -35,4 +35,6 @@ func main() {
 		log.WithError(err).Fatal("unable to start video capture")
 	}
 
-	window := gocv.NewWindow("Result Window"
+	window := gocv.NewWindow("Result Window")
+	defer func() {
+		err := window
