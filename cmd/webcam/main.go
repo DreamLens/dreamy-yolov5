@@ -39,4 +39,8 @@ func main() {
 	defer func() {
 		err := window.Close()
 		if err != nil {
-			log.WithError(err).Error("unable 
+			log.WithError(err).Error("unable to close window")
+		}
+	}()
+
+	frame := g
