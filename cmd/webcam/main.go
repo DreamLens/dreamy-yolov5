@@ -39,4 +39,4 @@ func main() {
 	defer func() {
 		err := window.Close()
 		if err != nil {
-			log.
+			log.WithError(err).Error("unable 
