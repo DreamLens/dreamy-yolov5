@@ -43,4 +43,6 @@ func main() {
 		}
 	}()
 
-	frame := g
+	frame := gocv.NewMat()
+	defer func() {
+		err := f
