@@ -46,4 +46,5 @@ func main() {
 	frame := gocv.NewMat()
 	defer func() {
 		err := frame.Close()
-		if err 
+		if err != nil {
+			log.WithError(err).Er
