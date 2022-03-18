@@ -47,4 +47,4 @@ func main() {
 	defer func() {
 		err := frame.Close()
 		if err != nil {
-			log.WithError(err).Er
+			log.WithError(err).Errorf("unable to close image"
