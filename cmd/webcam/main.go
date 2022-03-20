@@ -52,4 +52,4 @@ func main() {
 	}()
 
 	for {
-		if ok :
+		if ok := videoCapture.Read(&frame); !ok 
