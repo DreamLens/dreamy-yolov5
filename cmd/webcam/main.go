@@ -52,4 +52,5 @@ func main() {
 	}()
 
 	for {
-		if ok := videoCapture.Read(&frame); !ok 
+		if ok := videoCapture.Read(&frame); !ok {
+			log.Error("unable to rea
