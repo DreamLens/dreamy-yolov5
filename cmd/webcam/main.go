@@ -53,4 +53,6 @@ func main() {
 
 	for {
 		if ok := videoCapture.Read(&frame); !ok {
-			log.Error("unable to rea
+			log.Error("unable to read videostram")
+		}
+		if frame.Empty() 
