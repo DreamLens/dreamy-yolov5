@@ -55,4 +55,7 @@ func main() {
 		if ok := videoCapture.Read(&frame); !ok {
 			log.Error("unable to read videostram")
 		}
-		if frame.Empty() 
+		if frame.Empty() {
+			continue
+		}
+		detections, e
