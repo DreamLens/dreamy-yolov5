@@ -58,4 +58,4 @@ func main() {
 		if frame.Empty() {
 			continue
 		}
-		detections, e
+		detections, err := yolonet.GetDetect
