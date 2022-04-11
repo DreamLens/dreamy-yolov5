@@ -59,4 +59,5 @@ func main() {
 			continue
 		}
 		detections, err := yolonet.GetDetections(frame)
-		if err != nil 
+		if err != nil {
+			log.WithError(err).Fatal("un
