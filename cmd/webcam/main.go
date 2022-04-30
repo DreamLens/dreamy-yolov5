@@ -65,4 +65,7 @@ func main() {
 
 		yolov5.DrawDetections(&frame, detections)
 
-		window.IMShow(fr
+		window.IMShow(frame)
+		window.WaitKey(1)
+	}
+}
