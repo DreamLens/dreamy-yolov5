@@ -1,1 +1,1 @@
-// Package ml is use
+// Package ml is used as interface on how a neural n
