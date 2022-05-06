@@ -3,4 +3,4 @@ package ml
 
 import "gocv.io/x/gocv"
 
-// Neural
+// NeuralNet is the interface r
