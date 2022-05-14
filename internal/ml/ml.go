@@ -5,4 +5,5 @@ import "gocv.io/x/gocv"
 
 // NeuralNet is the interface representing the neural network
 // used for calculating the object detections
-type 
+type NeuralNet interface {
+	SetPreferabl
