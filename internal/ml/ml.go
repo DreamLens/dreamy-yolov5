@@ -7,4 +7,5 @@ import "gocv.io/x/gocv"
 // used for calculating the object detections
 type NeuralNet interface {
 	SetPreferableBackend(backend gocv.NetBackendType) error
-	SetPreferableTarget(target gocv.NetTarge
+	SetPreferableTarget(target gocv.NetTargetType) error
+	SetInput(blob gocv.M
