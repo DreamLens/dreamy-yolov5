@@ -8,4 +8,5 @@ import "gocv.io/x/gocv"
 type NeuralNet interface {
 	SetPreferableBackend(backend gocv.NetBackendType) error
 	SetPreferableTarget(target gocv.NetTargetType) error
-	SetInput(blob gocv.M
+	SetInput(blob gocv.Mat, name string)
+	ForwardLa
