@@ -10,4 +10,4 @@ type NeuralNet interface {
 	SetPreferableTarget(target gocv.NetTargetType) error
 	SetInput(blob gocv.Mat, name string)
 	ForwardLayers(outBlobNames []string) (blobs []gocv.Mat)
-	GetUnconnecte
+	GetUnconnectedOutLayers() (ids []int)
