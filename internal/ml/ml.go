@@ -12,4 +12,5 @@ type NeuralNet interface {
 	ForwardLayers(outBlobNames []string) (blobs []gocv.Mat)
 	GetUnconnectedOutLayers() (ids []int)
 	GetLayer(id int) gocv.Layer
-	Close
+	Close() error
+}
