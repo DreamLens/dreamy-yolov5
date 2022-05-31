@@ -29,3 +29,24 @@ func NewMockNeuralNet(ctrl *gomock.Controller) *MockNeuralNet {
 	mock.recorder = &MockNeuralNetMockRecorder{mock}
 	return mock
 }
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockNeuralNet) EXPECT() *MockNeuralNetMockRecorder {
+	return m.recorder
+}
+
+// Close mocks base method.
+func (m *MockNeuralNet) Close() error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "Close")
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// Close indicates an expected call of Close.
+func (mr *MockNeuralNetMockRecorder) Close() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockNeuralNet)(nil).Close))
+}
+
+// ForwardLayers mocks base method.
