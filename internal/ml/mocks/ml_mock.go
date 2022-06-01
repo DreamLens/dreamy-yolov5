@@ -50,3 +50,36 @@ func (mr *MockNeuralNetMockRecorder) Close() *gomock.Call {
 }
 
 // ForwardLayers mocks base method.
+func (m *MockNeuralNet) ForwardLayers(outBlobNames []string) []gocv.Mat {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "ForwardLayers", outBlobNames)
+	ret0, _ := ret[0].([]gocv.Mat)
+	return ret0
+}
+
+// ForwardLayers indicates an expected call of ForwardLayers.
+func (mr *MockNeuralNetMockRecorder) ForwardLayers(outBlobNames interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ForwardLayers", reflect.TypeOf((*MockNeuralNet)(nil).ForwardLayers), outBlobNames)
+}
+
+// GetLayer mocks base method.
+func (m *MockNeuralNet) GetLayer(id int) gocv.Layer {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetLayer", id)
+	ret0, _ := ret[0].(gocv.Layer)
+	return ret0
+}
+
+// GetLayer indicates an expected call of GetLayer.
+func (mr *MockNeuralNetMockRecorder) GetLayer(id interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetLayer", reflect.TypeOf((*MockNeuralNet)(nil).GetLayer), id)
+}
+
+// GetUnconnectedOutLayers mocks base method.
+func (m *MockNeuralNet) GetUnconnectedOutLayers() []int {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetUnconnectedOutLayers")
+	ret0, _ := ret[0].([]int)
+	return ret0
