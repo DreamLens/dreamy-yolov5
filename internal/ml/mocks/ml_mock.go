@@ -83,3 +83,36 @@ func (m *MockNeuralNet) GetUnconnectedOutLayers() []int {
 	ret := m.ctrl.Call(m, "GetUnconnectedOutLayers")
 	ret0, _ := ret[0].([]int)
 	return ret0
+}
+
+// GetUnconnectedOutLayers indicates an expected call of GetUnconnectedOutLayers.
+func (mr *MockNeuralNetMockRecorder) GetUnconnectedOutLayers() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUnconnectedOutLayers", reflect.TypeOf((*MockNeuralNet)(nil).GetUnconnectedOutLayers))
+}
+
+// SetInput mocks base method.
+func (m *MockNeuralNet) SetInput(blob gocv.Mat, name string) {
+	m.ctrl.T.Helper()
+	m.ctrl.Call(m, "SetInput", blob, name)
+}
+
+// SetInput indicates an expected call of SetInput.
+func (mr *MockNeuralNetMockRecorder) SetInput(blob, name interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetInput", reflect.TypeOf((*MockNeuralNet)(nil).SetInput), blob, name)
+}
+
+// SetPreferableBackend mocks base method.
+func (m *MockNeuralNet) SetPreferableBackend(backend gocv.NetBackendType) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SetPreferableBackend", backend)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// SetPreferableBackend indicates an expected call of SetPreferableBackend.
+func (mr *MockNeuralNetMockRecorder) SetPreferableBackend(backend interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetPreferableBackend", reflect.TypeOf((*MockNeuralNet)(nil).SetPreferableBackend), backend)
+}
