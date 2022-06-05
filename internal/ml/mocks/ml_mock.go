@@ -116,3 +116,17 @@ func (mr *MockNeuralNetMockRecorder) SetPreferableBackend(backend interface{}) *
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetPreferableBackend", reflect.TypeOf((*MockNeuralNet)(nil).SetPreferableBackend), backend)
 }
+
+// SetPreferableTarget mocks base method.
+func (m *MockNeuralNet) SetPreferableTarget(target gocv.NetTargetType) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SetPreferableTarget", target)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// SetPreferableTarget indicates an expected call of SetPreferableTarget.
+func (mr *MockNeuralNetMockRecorder) SetPreferableTarget(target interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetPreferableTarget", reflect.TypeOf((*MockNeuralNet)(nil).SetPreferableTarget), target)
+}
