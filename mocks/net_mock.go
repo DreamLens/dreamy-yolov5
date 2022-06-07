@@ -2,4 +2,7 @@
 // Source: yolov5.go
 
 // Package mock_yolov5 is a generated GoMock package.
-package mock
+package mock_yolov5
+
+import (
+       
