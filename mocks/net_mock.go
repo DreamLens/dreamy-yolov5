@@ -7,4 +7,5 @@ package mock_yolov5
 import (
         reflect "reflect"
 
-        gomock "github
+        gomock "github.com/golang/mock/gomock"
+        yolov5 "g
