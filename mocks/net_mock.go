@@ -9,3 +9,4 @@ import (
 
         gomock "github.com/golang/mock/gomock"
         yolov5 "github.com/wimspaargaren/yolov5"
+        gocv "gocv.io/
