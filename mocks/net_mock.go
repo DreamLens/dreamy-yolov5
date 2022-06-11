@@ -12,4 +12,6 @@ import (
         gocv "gocv.io/x/gocv"
 )
 
-// MockNet is a mock of Net 
+// MockNet is a mock of Net interface.
+type MockNet struct {
+  
