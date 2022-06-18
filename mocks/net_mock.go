@@ -15,4 +15,7 @@ import (
 // MockNet is a mock of Net interface.
 type MockNet struct {
         ctrl     *gomock.Controller
-        recorder *Moc
+        recorder *MockNetMockRecorder
+}
+
+//
