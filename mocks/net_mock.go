@@ -18,4 +18,5 @@ type MockNet struct {
         recorder *MockNetMockRecorder
 }
 
-// MockNetMockRecorder is the mock recor
+// MockNetMockRecorder is the mock recorder for MockNet.
+type MockNet
