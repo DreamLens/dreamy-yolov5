@@ -20,4 +20,7 @@ type MockNet struct {
 
 // MockNetMockRecorder is the mock recorder for MockNet.
 type MockNetMockRecorder struct {
-      
+        mock *MockNet
+}
+
+// NewM
