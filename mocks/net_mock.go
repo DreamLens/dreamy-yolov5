@@ -19,4 +19,5 @@ type MockNet struct {
 }
 
 // MockNetMockRecorder is the mock recorder for MockNet.
-type MockNet
+type MockNetMockRecorder struct {
+      
