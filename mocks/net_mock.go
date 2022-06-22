@@ -23,4 +23,4 @@ type MockNetMockRecorder struct {
         mock *MockNet
 }
 
-// NewM
+// NewMockNet creates a new m
