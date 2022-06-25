@@ -24,4 +24,4 @@ type MockNetMockRecorder struct {
 }
 
 // NewMockNet creates a new mock instance.
-func 
+func NewMockNet(ctrl *gomock.Control
