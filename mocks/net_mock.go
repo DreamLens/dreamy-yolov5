@@ -26,4 +26,4 @@ type MockNetMockRecorder struct {
 // NewMockNet creates a new mock instance.
 func NewMockNet(ctrl *gomock.Controller) *MockNet {
         mock := &MockNet{ctrl: ctrl}
-        mock.rec
+        mock.recorder = &MockNetMockRecord
