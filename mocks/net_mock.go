@@ -30,4 +30,4 @@ func NewMockNet(ctrl *gomock.Controller) *MockNet {
         return mock
 }
 
-// EXPECT retur
+// EXPECT returns an object that allows the calle
