@@ -27,4 +27,7 @@ type MockNetMockRecorder struct {
 func NewMockNet(ctrl *gomock.Controller) *MockNet {
         mock := &MockNet{ctrl: ctrl}
         mock.recorder = &MockNetMockRecorder{mock}
-        retur
+        return mock
+}
+
+// EXPECT retur
