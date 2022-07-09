@@ -32,4 +32,7 @@ func NewMockNet(ctrl *gomock.Controller) *MockNet {
 
 // EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockNet) EXPECT() *MockNetMockRecorder {
-        re
+        return m.recorder
+}
+
+// Close mocks 
