@@ -35,4 +35,5 @@ func (m *MockNet) EXPECT() *MockNetMockRecorder {
         return m.recorder
 }
 
-// Close mocks 
+// Close mocks base method.
+func (m *MockNet) C
