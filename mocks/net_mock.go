@@ -37,4 +37,5 @@ func (m *MockNet) EXPECT() *MockNetMockRecorder {
 
 // Close mocks base method.
 func (m *MockNet) Close() error {
-        m.ctrl.T.
+        m.ctrl.T.Helper()
+        ret := m
