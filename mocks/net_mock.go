@@ -39,4 +39,5 @@ func (m *MockNet) EXPECT() *MockNetMockRecorder {
 func (m *MockNet) Close() error {
         m.ctrl.T.Helper()
         ret := m.ctrl.Call(m, "Close")
-        
+        ret0, _ := ret[0].(error)
+      
