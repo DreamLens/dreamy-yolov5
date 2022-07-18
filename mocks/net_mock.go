@@ -43,4 +43,4 @@ func (m *MockNet) Close() error {
         return ret0
 }
 
-// Close indic
+// Close indicates an expected call
