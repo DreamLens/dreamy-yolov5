@@ -43,4 +43,5 @@ func (m *MockNet) Close() error {
         return ret0
 }
 
-// Close indicates an expected call
+// Close indicates an expected call of Close.
+func (mr *MockNet
