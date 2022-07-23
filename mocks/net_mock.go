@@ -44,4 +44,5 @@ func (m *MockNet) Close() error {
 }
 
 // Close indicates an expected call of Close.
-func (mr *MockNetMockRecorder) Close
+func (mr *MockNetMockRecorder) Close() *gomock.Call {
+        
