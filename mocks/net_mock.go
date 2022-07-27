@@ -46,4 +46,4 @@ func (m *MockNet) Close() error {
 // Close indicates an expected call of Close.
 func (mr *MockNetMockRecorder) Close() *gomock.Call {
         mr.mock.ctrl.T.Helper()
-        return mr.mock.ctrl.RecordCallWithMethodType(mr.mo
+        return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeO
