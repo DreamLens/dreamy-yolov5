@@ -47,3 +47,6 @@ func (m *MockNet) Close() error {
 func (mr *MockNetMockRecorder) Close() *gomock.Call {
         mr.mock.ctrl.T.Helper()
         return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockNet)(nil).Close))
+}
+
+// GetDetections mocks base meth
