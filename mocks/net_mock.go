@@ -49,4 +49,5 @@ func (mr *MockNetMockRecorder) Close() *gomock.Call {
         return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Close", reflect.TypeOf((*MockNet)(nil).Close))
 }
 
-// GetDetections mocks base meth
+// GetDetections mocks base method.
+func (m *MockNet) GetDetectio
