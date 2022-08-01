@@ -50,4 +50,4 @@ func (mr *MockNetMockRecorder) Close() *gomock.Call {
 }
 
 // GetDetections mocks base method.
-func (m *MockNet) GetDetectio
+func (m *MockNet) GetDetections(arg0 gocv.Mat) ([]yolov5.
