@@ -53,4 +53,5 @@ func (mr *MockNetMockRecorder) Close() *gomock.Call {
 func (m *MockNet) GetDetections(arg0 gocv.Mat) ([]yolov5.ObjectDetection, error) {
         m.ctrl.T.Helper()
         ret := m.ctrl.Call(m, "GetDetections", arg0)
-        ret0, _ := ret[0].([]yolov5.Objec
+        ret0, _ := ret[0].([]yolov5.ObjectDetection)
+        ret1, _ := 
