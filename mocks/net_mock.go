@@ -54,4 +54,5 @@ func (m *MockNet) GetDetections(arg0 gocv.Mat) ([]yolov5.ObjectDetection, error)
         m.ctrl.T.Helper()
         ret := m.ctrl.Call(m, "GetDetections", arg0)
         ret0, _ := ret[0].([]yolov5.ObjectDetection)
-        ret1, _ := 
+        ret1, _ := ret[1].(error)
+        return r
