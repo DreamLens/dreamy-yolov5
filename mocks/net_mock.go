@@ -58,4 +58,5 @@ func (m *MockNet) GetDetections(arg0 gocv.Mat) ([]yolov5.ObjectDetection, error)
         return ret0, ret1
 }
 
-// GetDetections indicates an expected call of GetDete
+// GetDetections indicates an expected call of GetDetections.
+func (mr *MockNetMockRecor
