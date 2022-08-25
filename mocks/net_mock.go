@@ -64,4 +64,4 @@ func (mr *MockNetMockRecorder) GetDetections(arg0 interface{}) *gomock.Call {
         return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetDetections", reflect.TypeOf((*MockNet)(nil).GetDetections), arg0)
 }
 
-// GetDe
+// GetDetectionsWithFilter mocks bas
