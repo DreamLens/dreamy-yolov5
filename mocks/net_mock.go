@@ -65,4 +65,5 @@ func (mr *MockNetMockRecorder) GetDetections(arg0 interface{}) *gomock.Call {
 }
 
 // GetDetectionsWithFilter mocks base method.
-func (m *MockNet) GetDetectionsWithFilter(arg0 gocv.Mat, arg1 map[string]bool) ([]yolov5.ObjectDetection, err
+func (m *MockNet) GetDetectionsWithFilter(arg0 gocv.Mat, arg1 map[string]bool) ([]yolov5.ObjectDetection, error) {
+        m.ctrl.T
