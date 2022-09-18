@@ -68,4 +68,5 @@ func (mr *MockNetMockRecorder) GetDetections(arg0 interface{}) *gomock.Call {
 func (m *MockNet) GetDetectionsWithFilter(arg0 gocv.Mat, arg1 map[string]bool) ([]yolov5.ObjectDetection, error) {
         m.ctrl.T.Helper()
         ret := m.ctrl.Call(m, "GetDetectionsWithFilter", arg0, arg1)
-        ret0, _ := ret[0].([
+        ret0, _ := ret[0].([]yolov5.ObjectDetection)
+       
