@@ -69,4 +69,5 @@ func (m *MockNet) GetDetectionsWithFilter(arg0 gocv.Mat, arg1 map[string]bool) (
         m.ctrl.T.Helper()
         ret := m.ctrl.Call(m, "GetDetectionsWithFilter", arg0, arg1)
         ret0, _ := ret[0].([]yolov5.ObjectDetection)
+        ret1, _ := ret[1].(error)
        
