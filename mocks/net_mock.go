@@ -75,4 +75,5 @@ func (m *MockNet) GetDetectionsWithFilter(arg0 gocv.Mat, arg1 map[string]bool) (
 
 // GetDetectionsWithFilter indicates an expected call of GetDetectionsWithFilter.
 func (mr *MockNetMockRecorder) GetDetectionsWithFilter(arg0, arg1 interface{}) *gomock.Call {
-        mr.
+        mr.mock.ctrl.T.Helper()
+        retu
