@@ -74,4 +74,4 @@ func (m *MockNet) GetDetectionsWithFilter(arg0 gocv.Mat, arg1 map[string]bool) (
 }
 
 // GetDetectionsWithFilter indicates an expected call of GetDetectionsWithFilter.
-func
+func (mr *MockNetMockRecorder) GetDete
