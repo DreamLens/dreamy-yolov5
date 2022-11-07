@@ -50,3 +50,35 @@ type Config struct {
 }
 
 // validate ensures that the basic fields of the config are set
+func (c *Config) validate() {
+	if c.NewNet == nil {
+		c.NewNet = initializeNet
+	}
+	if c.InputWidth == 0 {
+		c.InputWidth = DefaultInputWidth
+	}
+	if c.InputHeight == 0 {
+		c.InputHeight = DefaultInputHeight
+	}
+}
+
+// DefaultConfig used to create a working yolov5 net out of the box.
+func DefaultConfig() Config {
+	return Config{
+		InputWidth:          DefaultInputWidth,
+		InputHeight:         DefaultInputHeight,
+		ConfidenceThreshold: DefaultConfThreshold,
+		NMSThreshold:        DefaultNMSThreshold,
+		NetTargetType:       gocv.NetTargetCPU,
+		NetBackendType:      gocv.NetBackendDefault,
+		NewNet:              initializeNet,
+	}
+}
+
+// ObjectDetection represents information of an object detected by the neural net.
+type ObjectDetection struct {
+	ClassID     int
+	ClassName   string
+	BoundingBox image.Rectangle
+	Confidence  float32
+}
