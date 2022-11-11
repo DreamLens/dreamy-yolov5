@@ -82,3 +82,34 @@ type ObjectDetection struct {
 	BoundingBox image.Rectangle
 	Confidence  float32
 }
+
+// Net the yolov5 net.
+type Net interface {
+	Close() error
+	GetDetections(gocv.Mat) ([]ObjectDetection, error)
+	GetDetectionsWithFilter(gocv.Mat, map[string]bool) ([]ObjectDetection, error)
+}
+
+// yoloNet the net implementation.
+type yoloNet struct {
+	net       ml.NeuralNet
+	cocoNames []string
+
+	DefaultInputWidth   int
+	DefaultInputHeight  int
+	confidenceThreshold float32
+	DefaultNMSThreshold float32
+}
+
+// NewNet creates new yolo net for given weight path, config and coconames list.
+func NewNet(modelPath, cocoNamePath string) (Net, error) {
+	return NewNetWithConfig(modelPath, cocoNamePath, DefaultConfig())
+}
+
+// NewNetWithConfig creates new yolo net with given config.
+func NewNetWithConfig(modelPath, cocoNamePath string, config Config) (Net, error) {
+	if _, err := os.Stat(modelPath); os.IsNotExist(err) {
+		return nil, fmt.Errorf("path to net model not found")
+	}
+
+	cocoNames, err := getCocoNames(cocoNamePath)
