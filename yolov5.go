@@ -169,3 +169,33 @@ func (y *yoloNet) GetDetections(frame gocv.Mat) ([]ObjectDetection, error) {
 func (y *yoloNet) GetDetectionsWithFilter(frame gocv.Mat, classIDsFilter map[string]bool) ([]ObjectDetection, error) {
 	blob := gocv.BlobFromImage(frame, 1.0/255.0, image.Pt(y.DefaultInputWidth, y.DefaultInputHeight), gocv.NewScalar(0, 0, 0, 0), true, false)
 	// nolint: errcheck
+	defer blob.Close()
+	y.net.SetInput(blob, "")
+	layerIDs := y.net.GetUnconnectedOutLayers()
+	fl := []string{}
+
+	for _, id := range layerIDs {
+		layer := y.net.GetLayer(id)
+		fl = append(fl, layer.GetName())
+	}
+	outputs := y.net.ForwardLayers(fl)
+	for i := 0; i < len(outputs); i++ {
+		// nolint: errcheck
+		defer outputs[i].Close()
+	}
+
+	detections, err := y.processOutputs(frame, outputs, classIDsFilter)
+	if err != nil {
+		return nil, err
+	}
+
+	return detections, nil
+}
+
+// processOutputs process detected rows in the outputs.
+func (y *yoloNet) processOutputs(frame gocv.Mat, outputs []gocv.Mat, filter map[string]bool) ([]ObjectDetection, error) {
+	// FIXME add filter functionality
+	_ = filter
+
+	detections := []ObjectDetection{}
+	bboxes := []image.Rectangle{}
