@@ -199,3 +199,42 @@ func (y *yoloNet) processOutputs(frame gocv.Mat, outputs []gocv.Mat, filter map[
 
 	detections := []ObjectDetection{}
 	bboxes := []image.Rectangle{}
+	confidences := []float32{}
+	data, err := outputs[0].DataPtrFloat32()
+	if err != nil {
+		return nil, err
+	}
+
+	rows := 25200
+	stepSize := 85
+
+	for i := 0; i < rows; i++ {
+		confidence := data[4+stepSize*i]
+		if confidence >= .4 {
+			startIndex := 5 + stepSize*i
+			endIndex := stepSize * (i + 1)
+
+			scores := data[startIndex:endIndex]
+
+			classID := getClassID(scores)
+			confidences = append(confidences, confidence)
+			boundingBox := calculateBoundingBox(frame, data[0+stepSize*i:4+stepSize*i])
+			bboxes = append(bboxes, boundingBox)
+			detections = append(detections, ObjectDetection{
+				ClassID:     classID,
+				ClassName:   y.cocoNames[classID],
+				BoundingBox: boundingBox,
+				Confidence:  confidence,
+			})
+		}
+	}
+
+	if len(bboxes) == 0 {
+		return detections, nil
+	}
+
+	indices := gocv.NMSBoxes(bboxes, confidences, y.confidenceThreshold, y.DefaultNMSThreshold)
+	result := []ObjectDetection{}
+	for i, indice := range indices {
+		// If we encounter value 0 skip the detection
+		// except for the first indice
