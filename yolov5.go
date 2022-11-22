@@ -113,3 +113,33 @@ func NewNetWithConfig(modelPath, cocoNamePath string, config Config) (Net, error
 	}
 
 	cocoNames, err := getCocoNames(cocoNamePath)
+	if err != nil {
+		return nil, err
+	}
+
+	config.validate()
+
+	net := config.NewNet(modelPath)
+
+	err = setNetTargetTypes(net, config)
+	if err != nil {
+		return nil, err
+	}
+
+	return &yoloNet{
+		net:                 net,
+		cocoNames:           cocoNames,
+		DefaultInputWidth:   config.InputWidth,
+		DefaultInputHeight:  config.InputHeight,
+		confidenceThreshold: config.ConfidenceThreshold,
+		DefaultNMSThreshold: config.NMSThreshold,
+	}, nil
+}
+
+// initializeNet default method for creating neural network, leveraging gocv.
+func initializeNet(modelPath string) ml.NeuralNet {
+	net := gocv.ReadNetFromONNX(modelPath)
+	return &net
+}
+
+func setNetTargetTypes(net ml.NeuralNet, config Config) error {
