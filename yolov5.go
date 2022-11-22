@@ -143,3 +143,29 @@ func initializeNet(modelPath string) ml.NeuralNet {
 }
 
 func setNetTargetTypes(net ml.NeuralNet, config Config) error {
+	err := net.SetPreferableBackend(config.NetBackendType)
+	if err != nil {
+		return err
+	}
+
+	err = net.SetPreferableTarget(config.NetTargetType)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// Close closes the net.
+func (y *yoloNet) Close() error {
+	return y.net.Close()
+}
+
+// GetDetections retrieve predicted detections from given matrix.
+func (y *yoloNet) GetDetections(frame gocv.Mat) ([]ObjectDetection, error) {
+	return y.GetDetectionsWithFilter(frame, make(map[string]bool))
+}
+
+// GetDetectionsWithFilter allows you to detect objects, but filter out a given list of coco name ids.
+func (y *yoloNet) GetDetectionsWithFilter(frame gocv.Mat, classIDsFilter map[string]bool) ([]ObjectDetection, error) {
+	blob := gocv.BlobFromImage(frame, 1.0/255.0, image.Pt(y.DefaultInputWidth, y.DefaultInputHeight), gocv.NewScalar(0, 0, 0, 0), true, false)
+	// nolint: errcheck
