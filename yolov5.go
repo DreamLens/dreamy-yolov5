@@ -238,3 +238,37 @@ func (y *yoloNet) processOutputs(frame gocv.Mat, outputs []gocv.Mat, filter map[
 	for i, indice := range indices {
 		// If we encounter value 0 skip the detection
 		// except for the first indice
+		if i != 0 && indice == 0 {
+			continue
+		}
+		result = append(result, detections[indice])
+	}
+	return result, nil
+}
+
+func (y *yoloNet) isFiltered(classID int, classIDs map[string]bool) bool {
+	if classIDs == nil {
+		return false
+	}
+	return classIDs[y.cocoNames[classID]]
+}
+
+// calculateBoundingBox calculate the bounding box of the detected object.
+func calculateBoundingBox(frame gocv.Mat, row []float32) image.Rectangle {
+	if len(row) < 4 {
+		return image.Rect(0, 0, 0, 0)
+	}
+	xFactor := float32(frame.Cols()) / float32(640)
+	yFactor := float32(frame.Rows()) / float32(640)
+
+	x, y, w, h := row[0], row[1], row[2], row[3]
+	left := int((x - 0.5*w) * xFactor)
+	top := int((y - 0.5*h) * yFactor)
+	width := int(w * xFactor)
+	height := int(h * yFactor)
+
+	return image.Rect(left, top, left+width, top+height)
+}
+
+func getClassID(x []float32) int {
+	res := 0
