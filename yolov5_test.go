@@ -16,3 +16,33 @@ import (
 	"github.com/wimspaargaren/yolov5/internal/ml"
 	"github.com/wimspaargaren/yolov5/internal/ml/mocks"
 )
+
+type YoloTestSuite struct {
+	suite.Suite
+}
+
+func TestYoloTestSuite(t *testing.T) {
+	suite.Run(t, new(YoloTestSuite))
+}
+
+func (s *YoloTestSuite) TestCorrectImplementation() {
+	var _ Net = &yoloNet{}
+}
+
+func (s *YoloTestSuite) TestNewDefaultNetCorrectCreation() {
+	net, err := NewNet("data/yolov5/yolov5s.onnx", "data/yolov5/coco.names")
+	s.Require().NoError(err)
+	yoloNet := net.(*yoloNet)
+
+	s.NotNil(yoloNet.net)
+	s.Equal(81, len(yoloNet.cocoNames))
+	s.Equal(DefaultInputWidth, yoloNet.DefaultInputWidth)
+	s.Equal(DefaultInputHeight, yoloNet.DefaultInputHeight)
+	s.Equal(DefaultConfThreshold, yoloNet.confidenceThreshold)
+	s.Equal(DefaultNMSThreshold, yoloNet.DefaultNMSThreshold)
+
+	s.NoError(yoloNet.Close())
+}
+
+func (s *YoloTestSuite) TestNewCustomConfig_MissingNewNetFunc_CorrectCreation() {
+	net, err := NewNetWithConfig("data/yolov5/yolov5s.onnx", "data/yolov5/coco.names", Config{})
