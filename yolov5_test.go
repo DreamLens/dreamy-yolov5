@@ -173,3 +173,37 @@ func (s *YoloTestSuite) TestCalculateBoundingBox() {
 		// 	InputFrame:   gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
 		// 	InputRow:     []float32{1, 1, 1, 1},
 		// 	ExpectedRect: image.Rect(1, 1, 3, 3),
+		// },
+		{
+			Name:         "unexpected row",
+			InputFrame:   gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
+			InputRow:     []float32{1, 1, 1},
+			ExpectedRect: image.Rect(0, 0, 0, 0),
+		},
+	}
+	for _, test := range tests {
+		s.Run(test.Name, func() {
+			rect := calculateBoundingBox(test.InputFrame, test.InputRow)
+			s.Equal(test.ExpectedRect, rect)
+		})
+	}
+}
+
+func (s *YoloTestSuite) TestIsFiltered() {
+	tests := []struct {
+		Name     string
+		ClassID  int
+		ClassIDs map[string]bool
+		Expected bool
+	}{
+		{
+			Name:     "no inputs",
+			Expected: false,
+		},
+		{
+			Name:     "is filtered",
+			ClassID:  1,
+			ClassIDs: map[string]bool{"coffee": true},
+			Expected: true,
+		},
+		{
