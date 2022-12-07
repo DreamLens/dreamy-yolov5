@@ -46,3 +46,42 @@ func (s *YoloTestSuite) TestNewDefaultNetCorrectCreation() {
 
 func (s *YoloTestSuite) TestNewCustomConfig_MissingNewNetFunc_CorrectCreation() {
 	net, err := NewNetWithConfig("data/yolov5/yolov5s.onnx", "data/yolov5/coco.names", Config{})
+	s.Require().NoError(err)
+	yoloNet := net.(*yoloNet)
+
+	s.NotNil(yoloNet.net)
+	s.Equal(81, len(yoloNet.cocoNames))
+	s.Equal(DefaultInputWidth, yoloNet.DefaultInputWidth)
+	s.Equal(DefaultInputHeight, yoloNet.DefaultInputHeight)
+	s.Equal(float32(0), yoloNet.confidenceThreshold)
+	s.Equal(float32(0), yoloNet.DefaultNMSThreshold)
+
+	s.NoError(yoloNet.Close())
+}
+
+func (s *YoloTestSuite) TestUnableTocCreateNewNet() {
+	tests := []struct {
+		Name               string
+		ModelPath          string
+		CocoNamePath       string
+		Config             Config
+		Error              error
+		SetupNeuralNetMock func() *mocks.MockNeuralNet
+	}{
+		{
+			Name:         "Non existent weights path",
+			ModelPath:    "data/yolov5/notexistent",
+			CocoNamePath: "data/yolov5/coco.names",
+			Error:        fmt.Errorf("path to net model not found"),
+		},
+		{
+			Name:         "Non existent coco names path",
+			ModelPath:    "data/yolov5/yolov5s.onnx",
+			CocoNamePath: "data/yolov5/notexistent",
+		},
+		{
+			Name:         "Unable to set preferable backend",
+			ModelPath:    "data/yolov5/yolov5s.onnx",
+			CocoNamePath: "data/yolov5/coco.names",
+			SetupNeuralNetMock: func() *mocks.MockNeuralNet {
+				controller := gomock.NewController(s.T())
