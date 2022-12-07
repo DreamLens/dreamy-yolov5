@@ -298,3 +298,19 @@ func DrawDetections(frame *gocv.Mat, detections []ObjectDetection) {
 		text := fmt.Sprintf("%s:%.2f%%", detection.ClassName, detection.Confidence*100)
 
 		// Create bounding box of object
+		blue := color.RGBA{0, 0, 255, 0}
+		gocv.Rectangle(frame, detection.BoundingBox, blue, 3)
+
+		// Add text background
+		black := color.RGBA{0, 0, 0, 0}
+		size := gocv.GetTextSize(text, gocv.FontHersheySimplex, 0.5, 1)
+		r := detection.BoundingBox
+		textBackground := image.Rect(r.Min.X, r.Min.Y-size.Y-1, r.Min.X+size.X, r.Min.Y)
+		gocv.Rectangle(frame, textBackground, black, int(gocv.Filled))
+
+		// Add text
+		pt := image.Pt(r.Min.X, r.Min.Y-4)
+		white := color.RGBA{255, 255, 255, 0}
+		gocv.PutText(frame, text, pt, gocv.FontHersheySimplex, 0.5, white, 1)
+	}
+}
