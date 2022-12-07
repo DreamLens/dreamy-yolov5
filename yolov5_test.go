@@ -144,3 +144,32 @@ func (s *YoloTestSuite) TestClassIDAndConfidence() {
 			ExpectedIndex:     1,
 			ExpetedConfidence: 99.9,
 		},
+		{
+			Name:              "single inputs",
+			Input:             []float32{99.9, 70.0},
+			ExpectedIndex:     0,
+			ExpetedConfidence: 99.9,
+		},
+	}
+
+	for _, test := range tests {
+		s.Run(test.Name, func() {
+			index := getClassID(test.Input)
+			s.Equal(test.ExpectedIndex, index)
+		})
+	}
+}
+
+func (s *YoloTestSuite) TestCalculateBoundingBox() {
+	tests := []struct {
+		Name         string
+		InputFrame   gocv.Mat
+		InputRow     []float32
+		ExpectedRect image.Rectangle
+	}{
+		// FIXME
+		// {
+		// 	Name:         "normal bounding box calculation",
+		// 	InputFrame:   gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
+		// 	InputRow:     []float32{1, 1, 1, 1},
+		// 	ExpectedRect: image.Rect(1, 1, 3, 3),
