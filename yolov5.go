@@ -272,3 +272,29 @@ func calculateBoundingBox(frame gocv.Mat, row []float32) image.Rectangle {
 
 func getClassID(x []float32) int {
 	res := 0
+	max := float32(0)
+	for i, y := range x {
+		if y > max {
+			res = i
+			max = y
+		}
+	}
+	return res
+}
+
+// getCocoNames read coconames from given path.
+func getCocoNames(path string) ([]string, error) {
+	content, err := os.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	return strings.Split(string(content), "\n"), nil
+}
+
+// DrawDetections draws a given list of object detections on a gocv Matrix.
+func DrawDetections(frame *gocv.Mat, detections []ObjectDetection) {
+	for i := 0; i < len(detections); i++ {
+		detection := detections[i]
+		text := fmt.Sprintf("%s:%.2f%%", detection.ClassName, detection.Confidence*100)
+
+		// Create bounding box of object
