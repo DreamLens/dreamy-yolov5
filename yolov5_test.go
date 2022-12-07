@@ -118,3 +118,29 @@ func (s *YoloTestSuite) TestUnableTocCreateNewNet() {
 			}
 		})
 	}
+}
+
+func (s *YoloTestSuite) TestClassIDAndConfidence() {
+	tests := []struct {
+		Name              string
+		Input             []float32
+		ExpectedIndex     int
+		ExpetedConfidence float32
+	}{
+		{
+			Name:              "no inputs",
+			ExpectedIndex:     0,
+			ExpetedConfidence: 0,
+		},
+		{
+			Name:              "single inputs",
+			Input:             []float32{99.9},
+			ExpectedIndex:     0,
+			ExpetedConfidence: 99.9,
+		},
+		{
+			Name:              "single inputs",
+			Input:             []float32{70.0, 99.9},
+			ExpectedIndex:     1,
+			ExpetedConfidence: 99.9,
+		},
