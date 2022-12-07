@@ -85,3 +85,36 @@ func (s *YoloTestSuite) TestUnableTocCreateNewNet() {
 			CocoNamePath: "data/yolov5/coco.names",
 			SetupNeuralNetMock: func() *mocks.MockNeuralNet {
 				controller := gomock.NewController(s.T())
+				neuralNetMock := mocks.NewMockNeuralNet(controller)
+				neuralNetMock.EXPECT().SetPreferableBackend(gomock.Any()).Return(fmt.Errorf("very broken")).Times(1)
+				return neuralNetMock
+			},
+			Error: fmt.Errorf("very broken"),
+		},
+		{
+			Name:         "Unable to set preferable target type",
+			ModelPath:    "data/yolov5/yolov5s.onnx",
+			CocoNamePath: "data/yolov5/coco.names",
+			SetupNeuralNetMock: func() *mocks.MockNeuralNet {
+				controller := gomock.NewController(s.T())
+				neuralNetMock := mocks.NewMockNeuralNet(controller)
+				neuralNetMock.EXPECT().SetPreferableBackend(gomock.Any()).Return(nil).Times(1)
+				neuralNetMock.EXPECT().SetPreferableTarget(gomock.Any()).Return(fmt.Errorf("very broken")).Times(1)
+				return neuralNetMock
+			},
+			Error: fmt.Errorf("very broken"),
+		},
+	}
+
+	for _, test := range tests {
+		s.Run(test.Name, func() {
+			test.Config.NewNet = func(string) ml.NeuralNet {
+				return test.SetupNeuralNetMock()
+			}
+			_, err := NewNetWithConfig(test.ModelPath, test.CocoNamePath, test.Config)
+			s.Error(err)
+			if test.Error != nil {
+				s.Equal(test.Error, err)
+			}
+		})
+	}
