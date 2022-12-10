@@ -290,3 +290,24 @@ func (s *YoloTestSuite) TestIsFiltered() {
 // 			InputFilter:               map[string]bool{"coffee": true},
 // 			Result:                    []ObjectDetection{},
 // 		},
+// 		{
+// 			Name:       "Filter overlapping frame",
+// 			InputFrame: gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
+// 			InputOutputs: func() []gocv.Mat {
+// 				coffeeDetection1 := coffeeDetection()
+// 				coffeeDetection2 := coffeeDetection()
+// 				coffeeDetection2.SetFloatAt(0, 6, 10)
+// 				return []gocv.Mat{coffeeDetection1, coffeeDetection2}
+// 			}(),
+// 			InputFilter: map[string]bool{},
+// 			Result: []ObjectDetection{
+// 				{
+// 					ClassID:     1,
+// 					Confidence:  10,
+// 					ClassName:   "coffee",
+// 					BoundingBox: image.Rect(-1, 1, 1, 3),
+// 				},
+// 			},
+// 		},
+// 	}
+// 	for _, test := range tests {
