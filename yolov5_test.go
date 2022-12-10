@@ -232,3 +232,23 @@ func (s *YoloTestSuite) TestIsFiltered() {
 // 		InputFilter               map[string]bool
 // 		InputConfidenceThreshHold float32
 // 		Result                    []ObjectDetection
+// 		ExpectError               bool
+// 	}{
+// 		{
+// 			Name:       "Two rows containing two predictions",
+// 			InputFrame: gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
+// 			InputOutputs: func() []gocv.Mat {
+// 				laptopDetection := laptopDetection()
+// 				coffeeDetection := coffeeDetection()
+
+// 				return []gocv.Mat{laptopDetection, coffeeDetection}
+// 			}(),
+// 			InputFilter: map[string]bool{},
+// 			Result: []ObjectDetection{
+// 				{
+// 					ClassID:     0,
+// 					Confidence:  9,
+// 					ClassName:   "laptop",
+// 					BoundingBox: image.Rect(1, 1, 3, 3),
+// 				},
+// 				{
