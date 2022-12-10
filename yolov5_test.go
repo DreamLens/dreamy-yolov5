@@ -207,3 +207,28 @@ func (s *YoloTestSuite) TestIsFiltered() {
 			Expected: true,
 		},
 		{
+			Name:     "is not filtered",
+			ClassID:  0,
+			ClassIDs: map[string]bool{"coffee": true},
+			Expected: false,
+		},
+	}
+	for _, test := range tests {
+		s.Run(test.Name, func() {
+			y := &yoloNet{
+				cocoNames: []string{"laptop", "coffee"},
+			}
+			s.Equal(test.Expected, y.isFiltered(test.ClassID, test.ClassIDs))
+		})
+	}
+}
+
+// FIXME
+// func (s *YoloTestSuite) TestProcessOutputs() {
+// 	tests := []struct {
+// 		Name                      string
+// 		InputFrame                gocv.Mat
+// 		InputOutputs              []gocv.Mat
+// 		InputFilter               map[string]bool
+// 		InputConfidenceThreshHold float32
+// 		Result                    []ObjectDetection
