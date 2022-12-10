@@ -252,3 +252,41 @@ func (s *YoloTestSuite) TestIsFiltered() {
 // 					BoundingBox: image.Rect(1, 1, 3, 3),
 // 				},
 // 				{
+// 					ClassID:     1,
+// 					Confidence:  9,
+// 					ClassName:   "coffee",
+// 					BoundingBox: image.Rect(-1, 1, 1, 3),
+// 				},
+// 			},
+// 		},
+// 		{
+// 			Name:       "Incorrect input layer provided",
+// 			InputFrame: gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
+// 			InputOutputs: func() []gocv.Mat {
+// 				return []gocv.Mat{gocv.NewMatWithSize(1, 10, gocv.MatTypeCV16S)}
+// 			}(),
+// 			ExpectError: true,
+// 		},
+// 		{
+// 			Name:       "Result was filtered",
+// 			InputFrame: gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
+// 			InputOutputs: func() []gocv.Mat {
+// 				coffeeDetection := coffeeDetection()
+
+// 				return []gocv.Mat{coffeeDetection}
+// 			}(),
+// 			InputFilter: map[string]bool{"coffee": true},
+// 			Result:      []ObjectDetection{},
+// 		},
+// 		{
+// 			Name:       "Confidence not high enough",
+// 			InputFrame: gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
+// 			InputOutputs: func() []gocv.Mat {
+// 				coffeeDetection := coffeeDetection()
+
+// 				return []gocv.Mat{coffeeDetection}
+// 			}(),
+// 			InputConfidenceThreshHold: 999,
+// 			InputFilter:               map[string]bool{"coffee": true},
+// 			Result:                    []ObjectDetection{},
+// 		},
