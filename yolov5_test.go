@@ -311,3 +311,37 @@ func (s *YoloTestSuite) TestIsFiltered() {
 // 		},
 // 	}
 // 	for _, test := range tests {
+// 		s.Run(test.Name, func() {
+// 			y := &yoloNet{
+// 				cocoNames:           []string{"laptop", "coffee"},
+// 				confidenceThreshold: test.InputConfidenceThreshHold,
+// 			}
+// 			detections, err := y.processOutputs(test.InputFrame, test.InputOutputs, test.InputFilter)
+// 			if test.ExpectError {
+// 				s.Error(err)
+// 			} else {
+// 				s.Require().NoError(err)
+// 			}
+// 			s.Equal(test.Result, detections)
+// 		})
+// 	}
+// }
+
+// FIXME
+// func (s *YoloTestSuite) TestGetDetections() {
+// 	tests := []struct {
+// 		Name                      string
+// 		InputFrame                gocv.Mat
+// 		InputConfidenceThreshHold float32
+// 		Result                    []ObjectDetection
+// 		ExpectError               bool
+// 		SetupNeuralNetMock        func() *mocks.MockNeuralNet
+// 		Panics                    bool
+// 	}{
+// 		{
+// 			Name:       "Get successful detection",
+// 			InputFrame: gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
+// 			SetupNeuralNetMock: func() *mocks.MockNeuralNet {
+// 				controller := gomock.NewController(s.T())
+// 				neuralNetMock := mocks.NewMockNeuralNet(controller)
+// 				neuralNetMock.EXPECT().SetInput(gomock.Any(), "data").Times(1)
