@@ -345,3 +345,30 @@ func (s *YoloTestSuite) TestIsFiltered() {
 // 				controller := gomock.NewController(s.T())
 // 				neuralNetMock := mocks.NewMockNeuralNet(controller)
 // 				neuralNetMock.EXPECT().SetInput(gomock.Any(), "data").Times(1)
+
+// 				neuralNetMock.EXPECT().ForwardLayers(gomock.Any()).Return(func() []gocv.Mat {
+// 					laptopDetection := laptopDetection()
+// 					coffeeDetection := coffeeDetection()
+
+// 					return []gocv.Mat{laptopDetection, coffeeDetection}
+// 				}()).Times(1)
+// 				return neuralNetMock
+// 			},
+// 			Result: []ObjectDetection{
+// 				{
+// 					ClassID:     0,
+// 					Confidence:  9,
+// 					ClassName:   "laptop",
+// 					BoundingBox: image.Rect(1, 1, 3, 3),
+// 				},
+// 				{
+// 					ClassID:     1,
+// 					Confidence:  9,
+// 					ClassName:   "coffee",
+// 					BoundingBox: image.Rect(-1, 1, 1, 3),
+// 				},
+// 			},
+// 		},
+// 		{
+// 			Name:       "Incorrect input layer provided",
+// 			InputFrame: gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
