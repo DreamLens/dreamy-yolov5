@@ -372,3 +372,26 @@ func (s *YoloTestSuite) TestIsFiltered() {
 // 		{
 // 			Name:       "Incorrect input layer provided",
 // 			InputFrame: gocv.NewMatWithSize(2, 2, gocv.MatTypeCV32F),
+// 			SetupNeuralNetMock: func() *mocks.MockNeuralNet {
+// 				controller := gomock.NewController(s.T())
+// 				neuralNetMock := mocks.NewMockNeuralNet(controller)
+// 				neuralNetMock.EXPECT().SetInput(gomock.Any(), "data").Times(1)
+// 				neuralNetMock.EXPECT().ForwardLayers(gomock.Any()).Return([]gocv.Mat{gocv.NewMatWithSize(1, 10, gocv.MatTypeCV16S)}).Times(1)
+// 				return neuralNetMock
+// 			},
+// 			ExpectError: true,
+// 		},
+// 	}
+// 	for _, test := range tests {
+// 		s.Run(test.Name, func() {
+// 			y := &yoloNet{
+// 				cocoNames:           []string{"laptop", "coffee"},
+// 				confidenceThreshold: test.InputConfidenceThreshHold,
+// 				net:                 test.SetupNeuralNetMock(),
+// 			}
+// 			if test.Panics {
+// 				s.Panics(func() { y.GetDetections(test.InputFrame) })
+// 			} else {
+// 				detections, err := y.GetDetections(test.InputFrame)
+// 				if test.ExpectError {
+// 					s.Error(err)
