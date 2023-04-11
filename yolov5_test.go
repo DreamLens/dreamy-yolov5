@@ -395,3 +395,33 @@ func (s *YoloTestSuite) TestIsFiltered() {
 // 				detections, err := y.GetDetections(test.InputFrame)
 // 				if test.ExpectError {
 // 					s.Error(err)
+// 				} else {
+// 					s.Require().NoError(err)
+// 				}
+// 				s.Equal(test.Result, detections)
+// 			}
+// 		})
+// 	}
+// }
+
+func laptopDetection() gocv.Mat {
+	laptopDetection := gocv.NewMatWithSize(1, 10, gocv.MatTypeCV32F)
+	laptopDetection.SetFloatAt(0, 0, 1)
+	laptopDetection.SetFloatAt(0, 1, 1)
+	laptopDetection.SetFloatAt(0, 2, 1)
+	laptopDetection.SetFloatAt(0, 3, 1)
+	// Index for laptop == 5
+	laptopDetection.SetFloatAt(0, 5, 9)
+	return laptopDetection
+}
+
+func coffeeDetection() gocv.Mat {
+	coffeeDetection := gocv.NewMatWithSize(1, 10, gocv.MatTypeCV32F)
+	coffeeDetection.SetFloatAt(0, 1, 1)
+	coffeeDetection.SetFloatAt(0, 2, 1)
+	coffeeDetection.SetFloatAt(0, 3, 1)
+	coffeeDetection.SetFloatAt(0, 3, 1)
+	// Index for coffee == 6
+	coffeeDetection.SetFloatAt(0, 6, 9)
+	return coffeeDetection
+}
