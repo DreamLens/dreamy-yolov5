@@ -425,3 +425,26 @@ func coffeeDetection() gocv.Mat {
 	coffeeDetection.SetFloatAt(0, 6, 9)
 	return coffeeDetection
 }
+
+func ExampleNewNet() {
+	yolov5Model := path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/yolov5/data/yolov5/yolov5s.onnx")
+	cocoNamesPath := path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/data/yolov5/coco.names")
+
+	yolonet, err := NewNet(yolov5Model, cocoNamesPath)
+	if err != nil {
+		log.WithError(err).Fatal("unable to create yolo net")
+	}
+
+	// Gracefully close the net when the program is done
+	defer func() {
+		err := yolonet.Close()
+		if err != nil {
+			log.WithError(err).Error("unable to gracefully close yolo net")
+		}
+	}()
+
+	imagePath := path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/yolov5/data/example_images/bird.jpg")
+	frame := gocv.IMRead(imagePath, gocv.IMReadColor)
+
+	detections, err := yolonet.GetDetections(frame)
+	if err != nil {
