@@ -448,3 +448,27 @@ func ExampleNewNet() {
 
 	detections, err := yolonet.GetDetections(frame)
 	if err != nil {
+		log.WithError(err).Fatal("unable to retrieve predictions")
+	}
+
+	DrawDetections(&frame, detections)
+
+	window := gocv.NewWindow("Result Window")
+	defer func() {
+		err := window.Close()
+		if err != nil {
+			log.WithError(err).Error("unable to close window")
+		}
+	}()
+
+	window.IMShow(frame)
+	window.ResizeWindow(872, 585)
+
+	window.WaitKey(10000000000)
+}
+
+func ExampleNewNetWithConfig() {
+	yolov5Model := path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/yolov5/data/yolov5/yolov5s.onnx")
+	cocoNamesPath := path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/data/yolov5/coco.names")
+
+	conf := DefaultConfig()
