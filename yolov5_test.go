@@ -472,3 +472,22 @@ func ExampleNewNetWithConfig() {
 	cocoNamesPath := path.Join(os.Getenv("GOPATH"), "src/github.com/wimspaargaren/data/yolov5/coco.names")
 
 	conf := DefaultConfig()
+	// Set the neural net to use CUDA
+	conf.NetBackendType = gocv.NetBackendCUDA
+	conf.NetTargetType = gocv.NetTargetCUDA
+
+	yolonet, err := NewNetWithConfig(yolov5Model, cocoNamesPath, conf)
+	if err != nil {
+		log.WithError(err).Fatal("unable to create yolo net")
+	}
+
+	// Gracefully close the net when the program is done
+	defer func() {
+		err := yolonet.Close()
+		if err != nil {
+			log.WithError(err).Error("unable to gracefully close yolo net")
+		}
+	}()
+
+	// ...
+}
